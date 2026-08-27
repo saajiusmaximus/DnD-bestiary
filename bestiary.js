@@ -115,7 +115,7 @@
       saveProf: string[],   // "str" | "dex" | ...
       skillProf: string[],
       resistances?, vulnerabilities?, immunities?, conditionImmunities?,
-      senses?, languages?,
+      senses?, languages?, notes?,
       spellcasting?: { summary, levels: string[] },
       traits?: { name, desc }[],
       actions?: { name, desc }[]
@@ -296,6 +296,7 @@
       conditionImmunities: $("#f-conditionImmunities").value.trim(),
       senses: $("#f-senses").value.trim(),
       languages: $("#f-languages").value.trim(),
+      notes: $("#f-notes").value.trim(),
       traits: readNamedEntries(el.traitRows),
       actions: readNamedEntries(el.actionRows)
     };
@@ -466,6 +467,7 @@
           ${metaLine("Languages", creature.languages)}
         </div>
 
+        ${creature.notes ? renderSection("Notes", `<div class="entry notes">${esc(creature.notes)}</div>`) : ""}
         ${renderSection("Traits", traits + spells)}
         ${renderSection("Actions", actions)}
       </article>
@@ -531,6 +533,7 @@
     $("#f-conditionImmunities").value = creature?.conditionImmunities || "";
     $("#f-senses").value = creature?.senses || "";
     $("#f-languages").value = creature?.languages || "";
+    $("#f-notes").value = creature?.notes || "";
 
     fillNamedRows(el.traitRows, creature?.traits, "Trait name (e.g. Amphibious)", "What it does…");
     fillNamedRows(el.actionRows, creature?.actions, "Action name (e.g. Claw)", "Attack bonus, reach/range, damage…");

@@ -325,6 +325,10 @@ main {
   font-style: italic;
 }
 
+.notes {
+  white-space: pre-wrap;
+}
+
 .spell-levels {
   margin: 4px 0 0;
   font-size: 0.9rem;
