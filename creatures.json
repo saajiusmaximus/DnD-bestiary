@@ -1,0 +1,628 @@
+[
+  {
+    "id": "goatling-hp0p",
+    "name": "Goatling",
+    "type": "fey",
+    "size": "Small",
+    "ac": "13",
+    "hp": "5",
+    "speed": "30",
+    "stats": {
+      "str": "unknown",
+      "dex": 3,
+      "con": "unknown",
+      "int": "unknown",
+      "wis": -2,
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [
+      {
+        "name": "Resist to Magical Effects",
+        "desc": "Creature has advantage on saves against magical effects"
+      }
+    ],
+    "actions": [
+      {
+        "name": "Mockery",
+        "desc": "Wis save or target has disadvantage on attack rolls, if the target hits the creature with a melee attack roll, it auto crits"
+      },
+      {
+        "name": "Bite",
+        "desc": "+2 ATK, dmg unknown"
+      }
+    ],
+    "saveProf": []
+  },
+  {
+    "id": "goatling-trickster-eoc2",
+    "name": "Goatling Trickster",
+    "type": "fey",
+    "size": "Small",
+    "ac": "",
+    "hp": "19",
+    "speed": "30",
+    "stats": {
+      "str": "unknown",
+      "dex": 3,
+      "con": "unknown",
+      "int": "unknown",
+      "wis": -2,
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [
+      {
+        "name": "Spellcasting",
+        "desc": "Creature can cast spells\nPolymorph, and illusion spell"
+      },
+      {
+        "name": "Resist to Magical Effects",
+        "desc": "Creature has advantage on saves against magical effects"
+      }
+    ],
+    "actions": [],
+    "saveProf": []
+  },
+  {
+    "id": "mossy-roots-wwea",
+    "name": "Mossy Roots",
+    "type": "plant",
+    "size": "Large",
+    "ac": "Between 13 and 19",
+    "hp": "14",
+    "speed": "",
+    "stats": {
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "profBonus": 2,
+    "skillProf": [],
+    "resistances": "Fire, Cold",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": []
+  },
+  {
+    "id": "corrupted-treant-9m6x",
+    "name": "Corrupted Treant",
+    "type": "plant",
+    "size": "Large",
+    "ac": "",
+    "hp": "",
+    "speed": "",
+    "stats": {
+      "str": 5,
+      "dex": "unknown",
+      "con": "unknown",
+      "int": "unknown",
+      "wis": "unknown",
+      "cha": "unknown"
+    },
+    "profBonus": 4,
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": [
+      {
+        "name": "Thorned Tendril",
+        "desc": "4d6+5 damage, if hit creature is grappled and restrained"
+      }
+    ]
+  },
+  {
+    "id": "bandit-human-poxp",
+    "name": "Bandit (human)",
+    "type": "humanoid",
+    "size": "Medium",
+    "ac": "12 or 13",
+    "hp": "15",
+    "speed": "30",
+    "stats": {
+      "str": "unknown",
+      "dex": "unknown",
+      "con": "unknown",
+      "int": "unknown",
+      "wis": 0,
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": []
+  },
+  {
+    "id": "bandit-captain-minotaur-rxhg",
+    "name": "Korteva (assumed to be bandit captain) (minotaur)",
+    "type": "monstrosity",
+    "size": "Large",
+    "ac": "15",
+    "hp": "40",
+    "speed": "30",
+    "stats": {
+      "str": "unknown",
+      "dex": 3,
+      "con": "unknown",
+      "int": "unknown",
+      "wis": 0,
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "saveProf": [
+      "wis"
+    ],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": [
+      {
+        "name": "War Sling",
+        "desc": ""
+      },
+      {
+        "name": "Scimitar",
+        "desc": "1d6+3, +2 atk bonus"
+      },
+      {
+        "name": "Parry",
+        "desc": "As a reaction adds +2 to AC against a triggering attack"
+      }
+    ]
+  },
+  {
+    "id": "green-hag-bb0b",
+    "name": "Green Hag (Heleka)",
+    "type": "fey",
+    "size": "Medium",
+    "ac": "",
+    "hp": "",
+    "speed": "",
+    "stats": {
+      "str": 3,
+      "dex": "unknown",
+      "con": "unknown",
+      "int": "unknown",
+      "wis": 0,
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": [
+      {
+        "name": "Poison Claw",
+        "desc": "D10+3 Slashing, D6 poison"
+      }
+    ]
+  },
+  {
+    "id": "water-weird-g08t",
+    "name": "Water Weird",
+    "type": "elemental",
+    "size": "Large",
+    "ac": "",
+    "hp": "",
+    "speed": "",
+    "stats": {
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": []
+  },
+  {
+    "id": "harpy-xq3j",
+    "name": "Harpy",
+    "type": "monstrosity",
+    "size": "Medium",
+    "ac": "",
+    "hp": "",
+    "speed": "",
+    "stats": {
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": []
+  },
+  {
+    "id": "harpy-matriarch-y30r",
+    "name": "Harpy Matriarch",
+    "type": "monstrosity",
+    "size": "Medium",
+    "ac": "",
+    "hp": "",
+    "speed": "",
+    "stats": {
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": []
+  },
+  {
+    "id": "guardian-of-the-necropolis-lich-fv8r",
+    "name": "Guardian of the Necropolis (lich)",
+    "type": "undead",
+    "size": "Medium",
+    "ac": "",
+    "hp": "",
+    "speed": "",
+    "stats": {
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": []
+  },
+  {
+    "id": "undead-hoplite-frontline-170p",
+    "name": "Undead Hoplite (Frontline)",
+    "type": "undead",
+    "size": "Medium",
+    "ac": "18",
+    "hp": "13",
+    "speed": "30",
+    "stats": {
+      "str": "unknown",
+      "dex": 2,
+      "con": "unknown",
+      "int": "unknown",
+      "wis": 1,
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "Piercing, Slashing",
+    "vulnerabilities": "Bludgeoning",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [
+      {
+        "name": "Explode on death",
+        "desc": "When this creature is reduced to 0 HP it explodes in boney shards dealing 4 points of damage"
+      }
+    ],
+    "actions": [
+      {
+        "name": "Spear",
+        "desc": "1d6+2 piercing and 1d4+2 slashing"
+      }
+    ]
+  },
+  {
+    "id": "undead-hoplite-backline-t8pb",
+    "name": "Undead Hoplite (Backline)",
+    "type": "undead",
+    "size": "Medium",
+    "ac": "",
+    "hp": "13",
+    "speed": "",
+    "stats": {
+      "str": "unknown",
+      "dex": 2,
+      "con": "unknown",
+      "int": "unknown",
+      "wis": 1,
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "Piercing, Slashing",
+    "vulnerabilities": "Bludgeoning",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [
+      {
+        "name": "Explode on death",
+        "desc": "When this creature is reduced to 0 HP it explodes in boney shards dealing 4 points of damage"
+      }
+    ],
+    "actions": [
+      {
+        "name": "Bow",
+        "desc": "1d6+2"
+      }
+    ]
+  },
+  {
+    "id": "graxis-pclc",
+    "name": "Graxis",
+    "type": "undead",
+    "size": "Large",
+    "ac": "18",
+    "hp": "100",
+    "speed": "",
+    "stats": {
+      "str": "unknown",
+      "dex": -1,
+      "con": "unknown",
+      "int": "unknown",
+      "wis": 0,
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "Radiant",
+    "immunities": "Necrotic, Poison",
+    "conditionImmunities": "Posioned, Petrified, Charmed, Exhaustion, Paralyzed",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": [
+      {
+        "name": "Raging Riposte",
+        "desc": "When hit Graxis can usea reaction do deal 2d10 riposte damage."
+      }
+    ]
+  },
+  {
+    "id": "fire-elemental-8z5m",
+    "name": "Fire Elemental",
+    "type": "elemental",
+    "size": "Large",
+    "ac": "",
+    "hp": "",
+    "speed": "",
+    "stats": {
+      "str": 0,
+      "dex": 0,
+      "con": 0,
+      "int": 0,
+      "wis": 0,
+      "cha": 0
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": []
+  },
+  {
+    "id": "euria-oread-nymph-sgjr",
+    "name": "Euria (Oread Nymph)",
+    "type": "fey",
+    "size": "Medium",
+    "ac": "",
+    "hp": "",
+    "speed": "",
+    "stats": {
+      "str": "unknown",
+      "dex": "unknown",
+      "con": "unknown",
+      "int": "unknown",
+      "wis": "unknown",
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [
+      {
+        "name": "Spellcasting",
+        "desc": "Can cast Geas"
+      }
+    ],
+    "actions": []
+  },
+  {
+    "id": "stimfey-59gf",
+    "name": "Stimfay",
+    "type": "construct",
+    "size": "Small",
+    "ac": "Up to 18",
+    "hp": "Up to 18",
+    "speed": "Fly Speed",
+    "stats": {
+      "str": "unknown",
+      "dex": 2,
+      "con": "unknown",
+      "int": "unknown",
+      "wis": "unknown",
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": [
+      {
+        "name": "Beak",
+        "desc": "D4"
+      }
+    ]
+  },
+  {
+    "id": "amazon-warrior-8pho",
+    "name": "Amazon Warrior",
+    "type": "humanoid",
+    "size": "Medium",
+    "ac": "18",
+    "hp": "",
+    "speed": "30ft",
+    "stats": {
+      "str": "unknown",
+      "dex": 3,
+      "con": "unknown",
+      "int": "unknown",
+      "wis": "unknown",
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [
+      {
+        "name": "Command Stimfay",
+        "desc": "BA to command Stimfay compaion"
+      }
+    ],
+    "actions": [
+      {
+        "name": "Makhaira",
+        "desc": "D6+3"
+      },
+      {
+        "name": "Dorata",
+        "desc": "D6+3"
+      }
+    ]
+  },
+  {
+    "id": "griffon-7m7p",
+    "name": "Griffon",
+    "type": "monstrosity",
+    "size": "Large",
+    "ac": "15",
+    "hp": "Up to 68HP",
+    "speed": "50ft fly",
+    "stats": {
+      "str": "unknown",
+      "dex": "unknown",
+      "con": "unknown",
+      "int": "unknown",
+      "wis": 2,
+      "cha": "unknown"
+    },
+    "profBonus": 2,
+    "saveProf": [],
+    "skillProf": [],
+    "resistances": "",
+    "vulnerabilities": "",
+    "immunities": "",
+    "conditionImmunities": "",
+    "senses": "",
+    "languages": "",
+    "traits": [],
+    "actions": []
+  }
+]
