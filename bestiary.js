@@ -11,7 +11,7 @@
 
   const TYPES = [
     "fey", "plant", "humanoid", "monstrosity",
-    "elemental", "beast", "undead", "fiend", "other"
+    "elemental", "beast", "undead", "fiend", "construct", "other"
   ];
 
   const SIZES = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan"];
@@ -25,6 +25,7 @@
     beast: "#7a6a3a",
     undead: "#5b5147",
     fiend: "#5c1e17",
+    construct: "#6a6e75",
     other: "#665c4d"
   };
 
@@ -111,8 +112,9 @@
       id, name, type, size, ac, hp, speed,
       stats: { str|dex|con|int|wis|cha: number | "unknown" },
       profBonus: number | "unknown",
+      saveProf: string[],   // "str" | "dex" | ...
       skillProf: string[],
-      saves?, resistances?, vulnerabilities?, immunities?, conditionImmunities?,
+      resistances?, vulnerabilities?, immunities?, conditionImmunities?,
       senses?, languages?,
       spellcasting?: { summary, levels: string[] },
       traits?: { name, desc }[],
@@ -140,6 +142,7 @@
     form: document.getElementById("creatureForm"),
     modalTitle: document.getElementById("modalTitle"),
     abilityMods: document.getElementById("abilityMods"),
+    saveGrid: document.getElementById("saveGrid"),
     skillGrid: document.getElementById("skillGrid"),
     type: document.getElementById("f-type"),
     size: document.getElementById("f-size"),
@@ -233,12 +236,29 @@
     return Number(ability) + Number(prof);
   }
 
+  function saveBonus(creature, abilityKey) {
+    const ability = creature.stats?.[abilityKey];
+    const prof = creature.profBonus;
+    if (isUnknown(ability) || isUnknown(prof)) return null;
+    return Number(ability) + Number(prof);
+  }
+
   function formatSkills(creature) {
     const list = creature.skillProf || [];
     if (!list.length) return "";
     return list.map(name => {
       const bonus = skillBonus(creature, name);
       return bonus === null ? `${name} ?` : `${name} ${formatMod(bonus)}`;
+    }).join(", ");
+  }
+
+  function formatSaves(creature) {
+    const list = creature.saveProf || [];
+    if (!list.length) return creature.saves || "";
+    return list.map(key => {
+      const bonus = saveBonus(creature, key);
+      const label = key.toUpperCase();
+      return bonus === null ? `${label} ?` : `${label} ${formatMod(bonus)}`;
     }).join(", ");
   }
 
@@ -268,6 +288,7 @@
       speed: $("#f-speed").value.trim(),
       stats,
       profBonus: parseMod(el.prof.value),
+      saveProf: $$('input[name="saveProf"]:checked').map(input => input.value),
       skillProf: $$('input[name="skillProf"]:checked').map(input => input.value),
       resistances: $("#f-resistances").value.trim(),
       vulnerabilities: $("#f-vulnerabilities").value.trim(),
@@ -306,6 +327,19 @@
       state.activeId = CREATURES[0]?.id ?? null;
     }
     saveCreatures();
+  }
+
+  function duplicateCreature(id) {
+    const index = CREATURES.findIndex(c => c.id === id);
+    if (index < 0) return null;
+
+    const source = CREATURES[index];
+    const copy = structuredClone(source);
+    copy.name = `${source.name} (Copy)`;
+    copy.id = uniqueId(copy.name);
+    CREATURES.splice(index + 1, 0, copy);
+    saveCreatures();
+    return copy;
   }
 
   /* ---------- Render helpers ---------- */
@@ -407,6 +441,7 @@
           </div>
           <div class="page-actions">
             <button type="button" data-action="edit">Edit</button>
+            <button type="button" data-action="duplicate">Duplicate</button>
             <button type="button" class="danger" data-action="delete">Delete</button>
           </div>
         </header>
@@ -421,7 +456,7 @@
 
         <div class="meta-lines">
           ${hasValue(creature.profBonus) ? metaLine("Proficiency Bonus", formatMod(creature.profBonus)) : ""}
-          ${metaLine("Saving Throws", creature.saves)}
+          ${metaLine("Saving Throws", formatSaves(creature))}
           ${metaLine("Skills", formatSkills(creature))}
           ${metaLine("Damage Resistances", creature.resistances)}
           ${metaLine("Damage Vulnerabilities", creature.vulnerabilities)}
@@ -480,6 +515,11 @@
     });
     setSelectValue(el.prof, creature?.profBonus, 2);
 
+    const selectedSaves = new Set(creature?.saveProf || []);
+    $$('input[name="saveProf"]').forEach(input => {
+      input.checked = selectedSaves.has(input.value);
+    });
+
     const selectedSkills = new Set(creature?.skillProf || []);
     $$('input[name="skillProf"]').forEach(input => {
       input.checked = selectedSkills.has(input.value);
@@ -517,6 +557,31 @@
     el.backdrop.classList.remove("open");
   }
 
+  function saveAndCloseModal() {
+    if (!el.backdrop.classList.contains("open")) return;
+
+    const nameInput = $("#f-name").value.trim();
+    const creature = readCreatureFromForm();
+    const isNew = !state.editingId;
+    const emptyDraft = isNew
+      && !nameInput
+      && !creature.ac
+      && !creature.hp
+      && !creature.speed
+      && !(creature.traits || []).length
+      && !(creature.actions || []).length;
+
+    if (emptyDraft) {
+      closeModal();
+      return;
+    }
+
+    upsertCreature(creature);
+    state.activeId = creature.id;
+    closeModal();
+    refresh();
+  }
+
   function buildFormControls() {
     el.type.innerHTML = TYPES.map(type =>
       `<option value="${type}">${type[0].toUpperCase()}${type.slice(1)}</option>`
@@ -533,6 +598,13 @@
           ${optionRange({ from: -5, to: 10, selected: 0 })}
         </select>
       </div>
+    `).join("");
+
+    el.saveGrid.innerHTML = ABILITIES.map(key => `
+      <label>
+        <input type="checkbox" name="saveProf" value="${key}">
+        ${key.toUpperCase()}
+      </label>
     `).join("");
 
     el.prof.innerHTML = optionRange({ from: 1, to: 9, selected: 2 });
@@ -611,6 +683,15 @@
         return;
       }
 
+      if (btn.dataset.action === "duplicate") {
+        const copy = duplicateCreature(creature.id);
+        if (copy) {
+          state.activeId = copy.id;
+          refresh();
+        }
+        return;
+      }
+
       if (btn.dataset.action === "delete") {
         if (!confirm(`Delete “${creature.name}”?`)) return;
         deleteCreature(creature.id);
@@ -621,7 +702,7 @@
     el.btnAdd.addEventListener("click", openCreateModal);
     el.btnCancel.addEventListener("click", closeModal);
     el.backdrop.addEventListener("click", e => {
-      if (e.target === el.backdrop) closeModal();
+      if (e.target === el.backdrop) saveAndCloseModal();
     });
     document.addEventListener("keydown", e => {
       if (e.key === "Escape") closeModal();
@@ -636,11 +717,7 @@
 
     el.form.addEventListener("submit", e => {
       e.preventDefault();
-      const creature = readCreatureFromForm();
-      upsertCreature(creature);
-      state.activeId = creature.id;
-      closeModal();
-      refresh();
+      saveAndCloseModal();
     });
 
     el.btnExport.addEventListener("click", () => exportCreatures());
