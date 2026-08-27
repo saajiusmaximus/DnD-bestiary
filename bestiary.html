@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Field Bestiary</title>
+  <link rel="stylesheet" href="bestiary.css">
+</head>
+<body>
+
+<div class="shell">
+  <header>
+    <div class="brand">
+      <h1>Field Bestiary</h1>
+      <p>A working index of known creatures</p>
+    </div>
+    <div class="header-tools">
+      <input type="search" id="search" placeholder="Search by name or type…" aria-label="Search creatures">
+      <button type="button" id="btnAdd" class="primary">+ Add Creature</button>
+      <button type="button" id="btnExport">Export JSON</button>
+      <button type="button" id="btnImport">Import JSON</button>
+      <input type="file" id="importFile" accept="application/json,.json" hidden>
+    </div>
+  </header>
+
+  <nav class="sidebar" aria-label="Creature index">
+    <div class="legend" id="legend"></div>
+    <div id="tabList"></div>
+  </nav>
+
+  <main id="main">
+    <div class="placeholder">Select a creature from the index<br>— or add a new one —</div>
+  </main>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <form class="modal" id="creatureForm">
+    <h3 id="modalTitle">Add a Creature</h3>
+    <input type="hidden" id="f-id" name="id">
+
+    <label for="f-name">Name</label>
+    <input id="f-name" name="name" required placeholder="e.g. Bog Lurker">
+
+    <div class="grid2">
+      <div>
+        <label for="f-type">Type</label>
+        <select id="f-type" name="type"></select>
+      </div>
+      <div>
+        <label for="f-size">Size</label>
+        <select id="f-size" name="size"></select>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <label for="f-ac">Armor Class</label>
+        <input id="f-ac" name="ac" placeholder="e.g. 15 (natural armor)">
+      </div>
+      <div>
+        <label for="f-hp">Hit Points</label>
+        <input id="f-hp" name="hp" placeholder="e.g. 40 (5d10+15)">
+      </div>
+    </div>
+
+    <label for="f-speed">Speed</label>
+    <input id="f-speed" name="speed" placeholder="e.g. 30 ft., swim 40 ft.">
+
+    <label>Ability Modifiers <span class="hint">(or unknown)</span></label>
+    <div class="grid6" id="abilityMods"></div>
+
+    <label for="f-prof">Proficiency Bonus</label>
+    <select id="f-prof" name="profBonus"></select>
+
+    <label>Skill Proficiencies</label>
+    <div class="skill-grid" id="skillGrid"></div>
+
+    <div class="grid2">
+      <div>
+        <label for="f-resistances">Damage Resistances</label>
+        <input id="f-resistances" name="resistances" placeholder="e.g. cold; B/P/S from nonmagical attacks">
+      </div>
+      <div>
+        <label for="f-vulnerabilities">Damage Vulnerabilities</label>
+        <input id="f-vulnerabilities" name="vulnerabilities" placeholder="e.g. radiant">
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <label for="f-immunities">Damage Immunities</label>
+        <input id="f-immunities" name="immunities" placeholder="e.g. poison; B/P/S from nonmagical attacks">
+      </div>
+      <div>
+        <label for="f-conditionImmunities">Condition Immunities</label>
+        <input id="f-conditionImmunities" name="conditionImmunities" placeholder="e.g. poisoned, charmed">
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div>
+        <label for="f-senses">Senses</label>
+        <input id="f-senses" name="senses" placeholder="e.g. darkvision 60 ft., passive Perception 12">
+      </div>
+      <div>
+        <label for="f-languages">Languages</label>
+        <input id="f-languages" name="languages" placeholder="e.g. Common, Sylvan">
+      </div>
+    </div>
+
+    <label>Traits <span class="hint">(special features)</span></label>
+    <div id="traitRows"></div>
+    <button type="button" class="add-line" id="addTrait">+ Add trait</button>
+
+    <label class="mt">Actions / Attacks</label>
+    <div id="actionRows"></div>
+    <button type="button" class="add-line" id="addAction">+ Add action</button>
+
+    <div class="modal-actions">
+      <button type="button" id="btnCancel">Cancel</button>
+      <button type="submit" class="primary">Save Creature</button>
+    </div>
+  </form>
+</div>
+
+<script src="bestiary.js"></script>
+</body>
+</html>
